@@ -19,7 +19,7 @@ This project is intentionally built to resemble real infrastructure you'd place 
 
 ## Key Features
 
-### ⚡ Multiple Rate Limiting Algorithms
+### Multiple Rate Limiting Algorithms
 All strategies implement a shared interface and are registered through dependency injection:
 
 - **Fixed Window** - predictable, window-based throttling  
