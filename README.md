@@ -8,7 +8,7 @@ This project is intentionally built to resemble real infrastructure you'd place 
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Backend Framework:** ASP.NET Core (.NET 8), C#
 - **Architecture & Patterns:** Custom middleware, Strategy Pattern, Options Pattern, dependency injection
@@ -17,7 +17,7 @@ This project is intentionally built to resemble real infrastructure you'd place 
 - **Tooling & Observability:** .NET CLI, logging abstractions, Swagger/OpenAPI
 ---
 
-## 🚀 Key Features
+## Key Features
 
 ### ⚡ Multiple Rate Limiting Algorithms
 All strategies implement a shared interface and are registered through dependency injection:
@@ -30,7 +30,7 @@ Each strategy is isolated, testable, and easily extendable.
 
 ---
 
-## 🔑 Identity-Aware Throttling
+## Identity-Aware Throttling
 Every incoming request is mapped to a rate-limit identity:
 
 1. **API Key** (`X-Api-Key`)
@@ -51,7 +51,7 @@ This enables different clients and tenants to have different rate-limit behavior
 
 ---
 
-## 🧩 Policy-Based Strategy Selection
+## Policy-Based Strategy Selection
 Different endpoints can be mapped to different rate-limiting strategies - similar to what NGINX, Envoy, and Cloudflare expose.
 
 ```json
@@ -67,7 +67,7 @@ This lets the API choose between strict, burst-friendly, or smoothed rate-limit 
 
 ---
 
-## 🗄 Redis Backing (Distributed)
+## Redis Backing (Distributed)
 
 The rate limiter uses `IDistributedCache` (Redis) for its counters and timestamp buckets.
 This makes it horizontally scalable - multiple application instances share the same state.
@@ -76,7 +76,7 @@ For local development, it seamlessly falls back to an in-memory cache.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 ```
 src/
   API/
@@ -107,7 +107,7 @@ tests/
 
 ---
 
-## ▶️ Running the API
+## Running the API
 ```bash
 cd src/API
 dotnet run
@@ -126,7 +126,7 @@ Replace `<port>` with the port shown in your terminal after running `dotnet run`
 
 ---
 
-## 🧪 Test Suite
+## Test Suite
 
 ### Unit tests are located under: 
 `tests/API.RateLimiting.Tests`
@@ -148,7 +148,7 @@ All tests run in memory using MemoryDistributedCache — no external Redis neede
 
 ---
 
-## 🎯 Purpose
+## Purpose
 
 This is a ground-up implementation of distributed rate limiting — not a wrapper around .NET’s built-in limiter.
 It’s designed to demonstrate:
